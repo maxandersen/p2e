@@ -5,6 +5,8 @@ on:
       version:
         description: Release version
         required: true
+permissions: 
+  contents: write
 jobs:
   release:
     runs-on: macos-12
@@ -35,4 +37,4 @@ jobs:
           setup-java: false
         env:
           JRELEASER_PROJECT_VERSION: ${{ github.event.inputs.version }}
-          JRELEASER_GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          JRELEASER_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
